@@ -114,7 +114,8 @@ dishdiscover-web/
 
 **Header**
 - Sticky; transparent when at top of page, white bg after scrolling past hero
-- Logo (`app_logo_light.svg`) left; nav links (Home, Privacy Policy, Terms) + "Get the App" CTA right
+- Logo: `app_logo_dark.svg` (white text) when transparent over hero; swap to `app_logo_light.svg` (dark text) after scroll — controlled by `scrolled` state
+- Nav links (Home, Privacy Policy, Terms) + "Get the App" CTA right; link/text color white over hero, `gray-900` after scroll
 - CTA links to Google Play Store
 
 **Hero**
@@ -183,8 +184,8 @@ dishdiscover-web/
 ### Header — scroll behavior
 ```tsx
 // useEffect + scroll listener:
-// scrollY > 80 → add 'scrolled' class → white bg + shadow
-// scrollY <= 80 → remove class → transparent
+// scrollY > 80 → scrolled: true → white bg + shadow, app_logo_light.svg, dark nav text
+// scrollY <= 80 → scrolled: false → transparent bg, app_logo_dark.svg, white nav text
 ```
 
 ### LegalSidebar — active TOC tracking
