@@ -40,6 +40,9 @@ export default function Header() {
           <Link href="/" className={`text-sm font-medium transition-colors ${navLinkClass}`}>
             Home
           </Link>
+          <Link href="/about" className={`text-sm font-medium transition-colors ${navLinkClass}`}>
+            About
+          </Link>
           <Link href="/privacy" className={`text-sm font-medium transition-colors ${navLinkClass}`}>
             Privacy Policy
           </Link>
