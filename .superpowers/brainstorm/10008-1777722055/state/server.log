@@ -1,0 +1,5 @@
+{"type":"server-started","port":52239,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:52239","screen_dir":"/Users/meetbhatt/Documents/GitHub/My Projects/dishdiscover-web/.superpowers/brainstorm/10008-1777722055/content","state_dir":"/Users/meetbhatt/Documents/GitHub/My Projects/dishdiscover-web/.superpowers/brainstorm/10008-1777722055/state"}
+{"type":"screen-added","file":"/Users/meetbhatt/Documents/GitHub/My Projects/dishdiscover-web/.superpowers/brainstorm/10008-1777722055/content/design-direction.html"}
+{"type":"screen-added","file":"/Users/meetbhatt/Documents/GitHub/My Projects/dishdiscover-web/.superpowers/brainstorm/10008-1777722055/content/merged-direction.html"}
+{"type":"screen-added","file":"/Users/meetbhatt/Documents/GitHub/My Projects/dishdiscover-web/.superpowers/brainstorm/10008-1777722055/content/no-gradient.html"}
+{"type":"server-stopped","reason":"idle timeout"}

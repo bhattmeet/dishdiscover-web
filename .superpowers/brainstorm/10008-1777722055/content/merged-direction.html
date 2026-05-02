@@ -1,0 +1,373 @@
+<style>
+  .merged-wrap { display: flex; flex-direction: column; gap: 24px; }
+
+  /* Hero mockup */
+  .hero-mock {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  }
+
+  .hero-bar {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 12px;
+  }
+  .hero-bar .logo-pill {
+    background: #fff;
+    border-radius: 7px;
+    padding: 4px 12px;
+    font-size: 10px;
+    font-weight: 800;
+    color: #0D6F36;
+    letter-spacing: -0.3px;
+  }
+  .hero-bar .nav-links { display: flex; gap: 10px; margin-left: auto; }
+  .hero-bar .nav-link { color: rgba(255,255,255,0.7); font-size: 9px; font-weight: 500; }
+  .hero-bar .nav-link.active { color: #fff; font-weight: 700; }
+  .hero-bar .btn-dl {
+    background: #4ade80;
+    color: #052e16;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 5px;
+    margin-left: 8px;
+  }
+
+  .hero-body {
+    background: linear-gradient(150deg, #021a0a 0%, #0D6F36 55%, #10924A 100%);
+    padding: 36px 24px 60px;
+    text-align: center;
+    position: relative;
+  }
+  .hero-body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.04) 0%, transparent 50%);
+  }
+  .hero-body > * { position: relative; z-index: 1; }
+
+  .trust-pills { display: flex; gap: 8px; justify-content: center; margin-bottom: 16px; }
+  .trust-pill {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.85);
+    font-size: 9px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 999px;
+  }
+
+  .hero-logo-card {
+    display: inline-block;
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px 24px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    margin-bottom: 18px;
+  }
+  .hero-logo-card .logo-text {
+    font-size: 14px;
+    font-weight: 800;
+    color: #0D6F36;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-tagline {
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #4ade80;
+    margin-bottom: 8px;
+  }
+
+  .hero-h1 { font-size: 22px; font-weight: 900; color: #fff; line-height: 1.15; margin-bottom: 10px; letter-spacing: -0.5px; }
+  .hero-h1 span {
+    background: linear-gradient(90deg, #86efac, #4ade80);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub { font-size: 10px; color: rgba(255,255,255,0.72); line-height: 1.6; max-width: 280px; margin: 0 auto 18px; }
+
+  .hero-ctas { display: flex; gap: 8px; justify-content: center; }
+  .hero-ctas .btn-p { background: #fff; color: #0D6F36; font-size: 9px; font-weight: 700; padding: 7px 16px; border-radius: 7px; display: flex; align-items: center; gap: 5px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
+  .hero-ctas .btn-o { border: 1.5px solid rgba(255,255,255,0.35); color: #fff; font-size: 9px; font-weight: 600; padding: 7px 14px; border-radius: 7px; }
+
+  /* Floating cards */
+  .float-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    background: #fff;
+    border-radius: 0 0 16px 16px;
+    padding: 0 16px 16px;
+    margin-top: -24px;
+    position: relative;
+    z-index: 10;
+  }
+  .float-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+  }
+  .float-card .fc-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 7px; font-size: 13px; }
+  .float-card .fc-title { font-size: 10px; font-weight: 700; color: #111; margin-bottom: 3px; }
+  .float-card .fc-desc { font-size: 8.5px; color: #6b7280; line-height: 1.4; }
+  .float-card .fc-link { font-size: 8.5px; font-weight: 600; color: #0D6F36; margin-top: 6px; }
+
+  /* Stats bar */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .stat-item {
+    padding: 14px;
+    text-align: center;
+    border-right: 1px solid #f3f4f6;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-val { font-size: 18px; font-weight: 900; color: #0D6F36; letter-spacing: -0.5px; }
+  .stat-lbl { font-size: 8.5px; color: #9ca3af; font-weight: 500; margin-top: 2px; }
+
+  /* Section header style */
+  .section-head { display: flex; flex-direction: column; gap: 4px; }
+  .section-head .s-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #0D6F36; }
+  .section-head .s-title { font-size: 16px; font-weight: 900; color: #111; letter-spacing: -0.3px; }
+  .section-head .s-sub { font-size: 10px; color: #6b7280; max-width: 260px; line-height: 1.5; }
+
+  /* Features grid preview */
+  .feat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 12px; }
+  .feat-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 12px;
+    transition: all 0.2s;
+  }
+  .feat-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); border-color: #4ade80; }
+  .feat-icon { width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 7px; font-size: 14px; }
+  .feat-title { font-size: 10px; font-weight: 700; color: #111; margin-bottom: 3px; }
+  .feat-desc { font-size: 8.5px; color: #6b7280; line-height: 1.4; }
+
+  /* Doc page preview */
+  .doc-preview {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+  }
+  .doc-sidebar {
+    width: 120px;
+    background: #f9fafb;
+    border-right: 1px solid #f3f4f6;
+    padding: 12px;
+    flex-shrink: 0;
+  }
+  .doc-sidebar .toc-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #9ca3af; margin-bottom: 8px; }
+  .toc-item { font-size: 8.5px; color: #6b7280; padding: 4px 6px; border-radius: 5px; margin-bottom: 2px; border-left: 2px solid transparent; }
+  .toc-item.active { background: #f0fdf4; color: #0D6F36; border-left-color: #0D6F36; font-weight: 600; }
+  .doc-main { flex: 1; padding: 16px; }
+  .doc-section-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px; margin-bottom: 10px; }
+  .doc-sec-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .doc-sec-num { width: 24px; height: 24px; background: #f0fdf4; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 700; color: #0D6F36; flex-shrink: 0; }
+  .doc-sec-title { font-size: 11px; font-weight: 700; color: #0D6F36; }
+  .doc-sec-line { width: 24px; height: 2px; background: linear-gradient(90deg, #0D6F36, #4ade80); border-radius: 1px; margin-top: 3px; }
+  .doc-text { font-size: 8px; color: #6b7280; line-height: 1.5; }
+  .doc-list { list-style: disc; padding-left: 12px; }
+  .doc-list li { font-size: 8px; color: #6b7280; margin-bottom: 2px; }
+
+  .callout-box { background: #f0fdf4; border: 1px solid #dcfce7; border-radius: 7px; padding: 8px 10px; font-size: 8px; color: #166534; display: flex; gap: 6px; margin-top: 8px; }
+
+  /* Labels */
+  .section-divider { border: none; border-top: 1px solid #f3f4f6; margin: 8px 0; }
+  .section-title-sm { font-size: 11px; font-weight: 700; color: #374151; margin: 12px 0 6px; }
+</style>
+
+<h2>Merged Direction: A's Style + B's Copy</h2>
+<p class="subtitle">Here's how all three pages look with this combined approach. Let me know if anything needs adjusting.</p>
+
+<div class="merged-wrap">
+
+  <!-- ── HOME PAGE ── -->
+  <div class="section-head">
+    <span class="s-label">Page 1</span>
+    <span class="s-title">Home Page</span>
+    <span class="s-sub">Dark gradient hero with B's editorial copy, then clean white content sections below</span>
+  </div>
+
+  <div class="hero-mock">
+    <!-- Header -->
+    <div class="hero-bar" style="background:rgba(5,46,22,0.95);">
+      <div class="logo-pill">DishDiscover</div>
+      <div class="nav-links">
+        <span class="nav-link active">Home</span>
+        <span class="nav-link">Privacy</span>
+        <span class="nav-link">Terms</span>
+        <span class="btn-dl">▶ Get App</span>
+      </div>
+    </div>
+
+    <!-- Hero body -->
+    <div class="hero-body">
+      <div class="trust-pills">
+        <span class="trust-pill">★ 4.5 Rated</span>
+        <span class="trust-pill">1000+ Recipes</span>
+        <span class="trust-pill">Free Download</span>
+      </div>
+
+      <div class="hero-logo-card">
+        <div class="logo-text">DishDiscover</div>
+      </div>
+
+      <div class="hero-tagline">Your Culinary Journey</div>
+      <div class="hero-h1">Discover & Share<br><span>Recipes You Love</span></div>
+      <div class="hero-sub">Browse thousands of recipes from every cuisine, share your own creations, and connect with food lovers around the world.</div>
+
+      <div class="hero-ctas">
+        <div class="btn-p">▶ Download on Google Play</div>
+        <div class="btn-o">Privacy & Legal</div>
+      </div>
+    </div>
+
+    <!-- Floating cards -->
+    <div class="float-cards">
+      <div class="float-card">
+        <div class="fc-icon" style="background:#f0fdf4">🔒</div>
+        <div class="fc-title">Privacy Policy</div>
+        <div class="fc-desc">How we collect, use & protect your data.</div>
+        <div class="fc-link">Read Policy →</div>
+      </div>
+      <div class="float-card">
+        <div class="fc-icon" style="background:#eff6ff">📄</div>
+        <div class="fc-title">Terms & Conditions</div>
+        <div class="fc-desc">Rules governing your use of DishDiscover.</div>
+        <div class="fc-link">Read Terms →</div>
+      </div>
+      <div class="float-card">
+        <div class="fc-icon" style="background:#fdf4ff">✉️</div>
+        <div class="fc-title">Contact Us</div>
+        <div class="fc-desc">Questions? We respond within 30 days.</div>
+        <div class="fc-link">Get in Touch →</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-val">1000+</div><div class="stat-lbl">Recipes</div></div>
+    <div class="stat-item"><div class="stat-val">30+</div><div class="stat-lbl">Cuisines</div></div>
+    <div class="stat-item"><div class="stat-val">Free</div><div class="stat-lbl">To Download</div></div>
+    <div class="stat-item"><div class="stat-val">4.5★</div><div class="stat-lbl">Rating</div></div>
+  </div>
+
+  <!-- Features -->
+  <div class="section-head">
+    <span class="s-label">Features Section</span>
+    <span class="s-title">Everything a food lover needs</span>
+    <span class="s-sub">From discovering new recipes to tracking your cooking journey</span>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-card"><div class="feat-icon" style="background:#f0fdf4">🔍</div><div class="feat-title">Discover Recipes</div><div class="feat-desc">Browse 1000+ recipes across 30+ cuisines from quick meals to festive specials.</div></div>
+    <div class="feat-card"><div class="feat-icon" style="background:#eff6ff">📤</div><div class="feat-title">Share Creations</div><div class="feat-desc">Upload your own recipes with photos, ingredients and step-by-step instructions.</div></div>
+    <div class="feat-card"><div class="feat-icon" style="background:#fdf4ff">👥</div><div class="feat-title">Follow Food Lovers</div><div class="feat-desc">Build your culinary network — follow chefs and home cooks, like their recipes.</div></div>
+    <div class="feat-card"><div class="feat-icon" style="background:#fff7ed">📅</div><div class="feat-title">Meal Planning</div><div class="feat-desc">Plan weekly meals in advance and auto-generate shopping lists.</div></div>
+    <div class="feat-card"><div class="feat-icon" style="background:#fefce8">⭐</div><div class="feat-title">Achievements</div><div class="feat-desc">Earn badges as you cook, review and share. Level up your profile.</div></div>
+    <div class="feat-card"><div class="feat-icon" style="background:#f0fdf4">🔔</div><div class="feat-title">Smart Notifications</div><div class="feat-desc">Daily recipe picks and activity alerts sent straight to your phone.</div></div>
+  </div>
+
+  <hr class="section-divider" style="margin: 4px 0 16px">
+
+  <!-- ── PRIVACY / TERMS PAGES ── -->
+  <div class="section-head">
+    <span class="s-label">Pages 2 & 3</span>
+    <span class="s-title">Privacy Policy & Terms</span>
+    <span class="s-sub">Green gradient hero banner (shorter than home) + sticky sidebar TOC + section cards</span>
+  </div>
+
+  <!-- Doc page hero bar -->
+  <div style="border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.12);">
+    <div class="hero-bar" style="background:rgba(5,46,22,0.95);">
+      <div class="logo-pill">DishDiscover</div>
+      <div class="nav-links">
+        <span class="nav-link">Home</span>
+        <span class="nav-link active">Privacy</span>
+        <span class="nav-link">Terms</span>
+        <span class="btn-dl">▶ Get App</span>
+      </div>
+    </div>
+    <div style="background:linear-gradient(135deg,#021a0a,#0D6F36,#10924A);padding:20px 24px;">
+      <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.9);font-size:8px;font-weight:600;padding:3px 10px;border-radius:999px;margin-bottom:10px;">🔒 Legal Document</div>
+      <div style="font-size:20px;font-weight:900;color:#fff;letter-spacing:-0.5px;margin-bottom:6px;">Privacy Policy</div>
+      <div style="font-size:9px;color:rgba(255,255,255,0.75);max-width:340px;line-height:1.5;margin-bottom:10px;">We are committed to protecting your privacy. This policy explains exactly how your data is collected, used, and safeguarded.</div>
+      <div style="display:flex;gap:12px;font-size:8.5px;color:rgba(255,255,255,0.6);">
+        <span>🕐 Last Updated: Nov 23, 2025</span>
+        <span>📋 15 Sections</span>
+      </div>
+    </div>
+
+    <div class="doc-preview">
+      <div class="doc-sidebar">
+        <div class="toc-label">Contents</div>
+        <div class="toc-item active">1. Information We Collect</div>
+        <div class="toc-item">2. How We Use It</div>
+        <div class="toc-item">3. Data Storage</div>
+        <div class="toc-item">4. How We Share</div>
+        <div class="toc-item">5. Your Rights</div>
+        <div class="toc-item">6. Children's Privacy</div>
+        <div class="toc-item">7. Transfers</div>
+        <div style="color:#9ca3af;font-size:7.5px;margin-top:4px;padding-left:6px;">+ 8 more sections</div>
+      </div>
+      <div class="doc-main">
+        <div class="callout-box">
+          <span>🔒</span>
+          <span><strong>Your Privacy Matters:</strong> By using DishDiscover, you acknowledge that you have read and understood this Privacy Policy.</span>
+        </div>
+        <div class="doc-section-card" style="margin-top:10px;">
+          <div class="doc-sec-head">
+            <div class="doc-sec-num">01</div>
+            <div>
+              <div class="doc-sec-title">Information We Collect</div>
+              <div class="doc-sec-line"></div>
+            </div>
+          </div>
+          <div style="font-size:9px;font-weight:600;color:#374151;margin-bottom:4px;">1.1 Information You Provide Directly</div>
+          <ul class="doc-list">
+            <li>Full name, email address, password (encrypted)</li>
+            <li>Profile picture, bio, cooking skill level</li>
+            <li>Recipes, images, comments, reviews</li>
+          </ul>
+          <div style="font-size:9px;font-weight:600;color:#374151;margin:6px 0 4px;">1.2 Automatically Collected</div>
+          <ul class="doc-list">
+            <li>Device info, usage data, technical metrics</li>
+          </ul>
+        </div>
+        <div class="doc-section-card" style="opacity:0.5;">
+          <div class="doc-sec-head">
+            <div class="doc-sec-num">02</div>
+            <div><div class="doc-sec-title">How We Use Your Information</div><div class="doc-sec-line"></div></div>
+          </div>
+          <div class="doc-text">Service provision, communication, analytics, security…</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

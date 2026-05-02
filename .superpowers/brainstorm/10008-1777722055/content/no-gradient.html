@@ -1,0 +1,243 @@
+<style>
+  body { background: #f3f4f6; }
+  .wrap { display: flex; flex-direction: column; gap: 20px; max-width: 860px; margin: 0 auto; }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex; align-items: center;
+    padding: 10px 20px; gap: 12px;
+    border-radius: 12px 12px 0 0;
+  }
+  .logo-pill { background: #f0fdf4; border: 1px solid #dcfce7; border-radius: 7px; padding: 4px 12px; font-size: 10px; font-weight: 800; color: #0D6F36; }
+  .nav-links { display: flex; gap: 10px; margin-left: auto; align-items: center; }
+  .nav-link { color: #6b7280; font-size: 9px; font-weight: 500; }
+  .nav-link.active { color: #0D6F36; font-weight: 700; }
+  .btn-dl { background: #0D6F36; color: #fff; font-size: 9px; font-weight: 700; padding: 5px 12px; border-radius: 5px; }
+
+  /* ── HERO — solid dark green ── */
+  .hero-body {
+    background: #052e16;
+    padding: 40px 28px 64px;
+    text-align: center;
+  }
+  .trust-pills { display: flex; gap: 8px; justify-content: center; margin-bottom: 18px; }
+  .trust-pill { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.8); font-size: 9px; font-weight: 500; padding: 3px 10px; border-radius: 999px; }
+
+  .hero-logo-card { display: inline-block; background: #fff; border-radius: 14px; padding: 12px 28px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); margin-bottom: 20px; }
+  .hero-logo-card .logo-text { font-size: 15px; font-weight: 800; color: #0D6F36; letter-spacing: -0.5px; }
+
+  .hero-tagline { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #4ade80; margin-bottom: 10px; }
+
+  /* No gradient text — plain white */
+  .hero-h1 { font-size: 24px; font-weight: 900; color: #fff; line-height: 1.15; margin-bottom: 12px; letter-spacing: -0.5px; }
+
+  .hero-sub { font-size: 10px; color: rgba(255,255,255,0.65); line-height: 1.65; max-width: 300px; margin: 0 auto 20px; }
+
+  .hero-ctas { display: flex; gap: 9px; justify-content: center; }
+  .btn-primary { background: #fff; color: #0D6F36; font-size: 9px; font-weight: 800; padding: 8px 18px; border-radius: 7px; display: flex; align-items: center; gap: 5px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+  .btn-outline  { border: 1.5px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.85); font-size: 9px; font-weight: 600; padding: 8px 14px; border-radius: 7px; }
+
+  /* ── FLOATING CARDS ── */
+  .float-wrap { background: #fff; padding: 0 16px 16px; margin-top: -26px; border-radius: 0 0 0 0; }
+  .float-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+  .float-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 13px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .fc-icon { width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; font-size: 14px; }
+  .fc-title { font-size: 10px; font-weight: 700; color: #111; margin-bottom: 3px; }
+  .fc-desc  { font-size: 8.5px; color: #6b7280; line-height: 1.4; }
+  .fc-link  { font-size: 8.5px; font-weight: 700; color: #0D6F36; margin-top: 7px; }
+
+  /* ── STATS ── */
+  .stats-bar { display: grid; grid-template-columns: repeat(4,1fr); background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; }
+  .stat { padding: 14px; text-align: center; border-right: 1px solid #f3f4f6; }
+  .stat:last-child { border-right: none; }
+  .stat-val { font-size: 17px; font-weight: 900; color: #0D6F36; letter-spacing: -0.5px; }
+  .stat-lbl { font-size: 8.5px; color: #9ca3af; font-weight: 500; margin-top: 2px; }
+
+  /* ── FEATURES ── */
+  .section-head { margin-top: 4px; }
+  .s-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #0D6F36; background: #f0fdf4; border: 1px solid #dcfce7; padding: 2px 8px; border-radius: 999px; }
+  .s-title { font-size: 15px; font-weight: 900; color: #111; letter-spacing: -0.3px; margin: 6px 0 3px; }
+  .s-sub   { font-size: 9.5px; color: #6b7280; }
+  .feat-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 9px; margin-top: 12px; }
+  .feat-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 13px; }
+  .feat-icon { width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; font-size: 14px; }
+  .feat-title { font-size: 10px; font-weight: 700; color: #111; margin-bottom: 3px; }
+  .feat-desc  { font-size: 8.5px; color: #6b7280; line-height: 1.4; }
+
+  /* ── DOC HERO ── */
+  .doc-hero {
+    background: #052e16;    /* solid, no gradient */
+    padding: 22px 24px;
+  }
+  .doc-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); color: rgba(255,255,255,0.85); font-size: 8px; font-weight: 600; padding: 3px 10px; border-radius: 999px; margin-bottom: 11px; }
+  .doc-h1   { font-size: 20px; font-weight: 900; color: #fff; letter-spacing: -0.5px; margin-bottom: 7px; }
+  .doc-sub  { font-size: 9px; color: rgba(255,255,255,0.65); line-height: 1.55; max-width: 340px; margin-bottom: 10px; }
+  .doc-meta { display: flex; gap: 14px; font-size: 8.5px; color: rgba(255,255,255,0.5); }
+
+  /* ── DOC LAYOUT ── */
+  .doc-body { display: flex; background: #fff; }
+  .doc-sidebar { width: 130px; background: #f9fafb; border-right: 1px solid #f3f4f6; padding: 13px; flex-shrink: 0; }
+  .toc-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #9ca3af; margin-bottom: 8px; }
+  .toc-item { font-size: 8px; color: #6b7280; padding: 4px 6px; border-radius: 5px; margin-bottom: 2px; border-left: 2px solid transparent; }
+  .toc-item.active { background: #f0fdf4; color: #0D6F36; border-left-color: #0D6F36; font-weight: 700; }
+  .doc-main { flex: 1; padding: 14px; }
+
+  /* solid green badge on section number, no gradient underline */
+  .sec-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px; margin-bottom: 9px; }
+  .sec-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .sec-num  { width: 26px; height: 26px; background: #0D6F36; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 700; color: #fff; flex-shrink: 0; }
+  .sec-title { font-size: 11px; font-weight: 700; color: #0D6F36; }
+  .sec-bar  { width: 22px; height: 2px; background: #0D6F36; border-radius: 1px; margin-top: 3px; } /* solid, not gradient */
+  .sec-list { list-style: disc; padding-left: 13px; }
+  .sec-list li { font-size: 8px; color: #6b7280; margin-bottom: 2px; }
+  .callout { background: #f0fdf4; border: 1px solid #dcfce7; border-radius: 7px; padding: 8px 10px; font-size: 8px; color: #166534; display: flex; gap: 7px; margin-top: 8px; }
+
+  .page-label { font-size: 11px; font-weight: 700; color: #374151; background: #fff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 6px 12px; display: inline-block; }
+  .rounded-box { border-radius: 14px; overflow: hidden; box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+</style>
+
+<h2>No Gradients — Solid Color Version</h2>
+<p class="subtitle">Same structure, all gradients replaced with solid brand green <strong>#052e16</strong> (hero) and <strong>#0D6F36</strong> (accents).</p>
+
+<div class="wrap">
+
+  <!-- ── HOME ── -->
+  <div class="page-label">🏠 Home Page</div>
+  <div class="rounded-box">
+    <div class="site-header">
+      <div class="logo-pill">DishDiscover</div>
+      <div class="nav-links">
+        <span class="nav-link active">Home</span>
+        <span class="nav-link">Privacy</span>
+        <span class="nav-link">Terms</span>
+        <span class="btn-dl">▶ Get App</span>
+      </div>
+    </div>
+
+    <div class="hero-body">
+      <div class="trust-pills">
+        <span class="trust-pill">★ 4.5 Rated</span>
+        <span class="trust-pill">1000+ Recipes</span>
+        <span class="trust-pill">Free Download</span>
+      </div>
+      <div class="hero-logo-card">
+        <div class="logo-text">DishDiscover</div>
+      </div>
+      <div class="hero-tagline">Your Culinary Journey</div>
+      <div class="hero-h1">Discover & Share<br>Recipes You Love</div>
+      <div class="hero-sub">Browse thousands of recipes from every cuisine, share your own creations, and connect with food lovers around the world.</div>
+      <div class="hero-ctas">
+        <div class="btn-primary">▶ Download on Google Play</div>
+        <div class="btn-outline">Privacy & Legal</div>
+      </div>
+    </div>
+
+    <div class="float-wrap">
+      <div class="float-grid">
+        <div class="float-card">
+          <div class="fc-icon" style="background:#f0fdf4">🔒</div>
+          <div class="fc-title">Privacy Policy</div>
+          <div class="fc-desc">How we collect, use & protect your data.</div>
+          <div class="fc-link">Read Policy →</div>
+        </div>
+        <div class="float-card">
+          <div class="fc-icon" style="background:#eff6ff">📄</div>
+          <div class="fc-title">Terms & Conditions</div>
+          <div class="fc-desc">Rules governing your use of DishDiscover.</div>
+          <div class="fc-link">Read Terms →</div>
+        </div>
+        <div class="float-card">
+          <div class="fc-icon" style="background:#fdf4ff">✉️</div>
+          <div class="fc-title">Contact Us</div>
+          <div class="fc-desc">Questions? We respond within 30 days.</div>
+          <div class="fc-link">Get in Touch →</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;padding:14px 16px;">
+      <div class="stats-bar">
+        <div class="stat"><div class="stat-val">1000+</div><div class="stat-lbl">Recipes</div></div>
+        <div class="stat"><div class="stat-val">30+</div><div class="stat-lbl">Cuisines</div></div>
+        <div class="stat"><div class="stat-val">Free</div><div class="stat-lbl">To Download</div></div>
+        <div class="stat"><div class="stat-val">4.5★</div><div class="stat-lbl">Rating</div></div>
+      </div>
+    </div>
+
+    <div style="background:#f9fafb;padding:16px;">
+      <div class="section-head">
+        <span class="s-label">Features</span>
+        <div class="s-title">Everything a food lover needs</div>
+        <div class="s-sub">From discovering new recipes to tracking your cooking journey</div>
+      </div>
+      <div class="feat-grid">
+        <div class="feat-card"><div class="feat-icon" style="background:#f0fdf4">🔍</div><div class="feat-title">Discover Recipes</div><div class="feat-desc">1000+ dishes across 30+ cuisines.</div></div>
+        <div class="feat-card"><div class="feat-icon" style="background:#eff6ff">📤</div><div class="feat-title">Share Creations</div><div class="feat-desc">Upload recipes with photos & steps.</div></div>
+        <div class="feat-card"><div class="feat-icon" style="background:#fdf4ff">👥</div><div class="feat-title">Follow Food Lovers</div><div class="feat-desc">Build your culinary network.</div></div>
+        <div class="feat-card"><div class="feat-icon" style="background:#fff7ed">📅</div><div class="feat-title">Meal Planning</div><div class="feat-desc">Plan meals, auto-generate lists.</div></div>
+        <div class="feat-card"><div class="feat-icon" style="background:#fefce8">⭐</div><div class="feat-title">Achievements</div><div class="feat-desc">Earn badges, level up your profile.</div></div>
+        <div class="feat-card"><div class="feat-icon" style="background:#f0fdf4">🔔</div><div class="feat-title">Notifications</div><div class="feat-desc">Daily picks sent to your phone.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PRIVACY PAGE ── -->
+  <div class="page-label">🔒 Privacy Policy Page</div>
+  <div class="rounded-box">
+    <div class="site-header" style="border-radius:0">
+      <div class="logo-pill">DishDiscover</div>
+      <div class="nav-links">
+        <span class="nav-link">Home</span>
+        <span class="nav-link active">Privacy</span>
+        <span class="nav-link">Terms</span>
+        <span class="btn-dl">▶ Get App</span>
+      </div>
+    </div>
+    <div class="doc-hero">
+      <div class="doc-badge">🔒 Legal Document</div>
+      <div class="doc-h1">Privacy Policy</div>
+      <div class="doc-sub">We are committed to protecting your privacy. This policy explains exactly how your data is collected, used, and safeguarded.</div>
+      <div class="doc-meta"><span>🕐 Last Updated: Nov 23, 2025</span><span>📋 15 Sections</span></div>
+    </div>
+    <div class="doc-body">
+      <div class="doc-sidebar">
+        <div class="toc-label">Contents</div>
+        <div class="toc-item active">1. Information We Collect</div>
+        <div class="toc-item">2. How We Use It</div>
+        <div class="toc-item">3. Data Storage</div>
+        <div class="toc-item">4. How We Share</div>
+        <div class="toc-item">5. Your Rights</div>
+        <div class="toc-item">6. Children's Privacy</div>
+        <div style="color:#9ca3af;font-size:7px;margin-top:4px;padding-left:6px;">+ 9 more sections</div>
+      </div>
+      <div class="doc-main">
+        <div class="callout">
+          <span>🔒</span>
+          <span><strong>Your Privacy Matters:</strong> By using DishDiscover, you acknowledge reading this Privacy Policy.</span>
+        </div>
+        <div class="sec-card" style="margin-top:10px;">
+          <div class="sec-head">
+            <div class="sec-num">01</div>
+            <div><div class="sec-title">Information We Collect</div><div class="sec-bar"></div></div>
+          </div>
+          <div style="font-size:8.5px;font-weight:600;color:#374151;margin-bottom:4px;">1.1 You Provide Directly</div>
+          <ul class="sec-list">
+            <li>Full name, email, password (encrypted)</li>
+            <li>Profile picture, bio, cooking skill level</li>
+            <li>Recipes, images, comments, reviews</li>
+          </ul>
+        </div>
+        <div class="sec-card" style="opacity:0.55;">
+          <div class="sec-head">
+            <div class="sec-num">02</div>
+            <div><div class="sec-title">How We Use Your Information</div><div class="sec-bar"></div></div>
+          </div>
+          <div style="font-size:8px;color:#9ca3af;">Service provision, communication, analytics…</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

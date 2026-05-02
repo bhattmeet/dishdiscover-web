@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DishDiscover — Discover &amp; Share Recipes</title>
+  <meta name="description" content="DishDiscover helps you explore thousands of recipes, share your own culinary creations, and connect with food lovers worldwide.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo-wrap" aria-label="DishDiscover home">
+      <img src="assets/app_logo_light.svg" alt="DishDiscover" class="logo-img">
+    </a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="index.html"   class="nav-link active">Home</a>
+      <a href="privacy.html" class="nav-link">Privacy Policy</a>
+      <a href="terms.html"   class="nav-link">Terms</a>
+      <a href="https://play.google.com/store/apps/details?id=com.meet.dishdiscover"
+         class="btn-store" target="_blank" rel="noopener" aria-label="Get DishDiscover on Google Play">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+          <path d="M3.18 23.76a2 2 0 0 0 2.2-.29l13.4-7.74-3.08-3.08-12.52 11.11zm-1.18-22c-.06.2-.1.43-.1.67v19.14c0 .24.04.47.1.67l.08.07 10.72-10.72v-.24L2.08 1.69l-.08.07zm21.27 9.71-3.03-1.75-3.39 3.39 3.39 3.39 3.05-1.76c.87-.5.87-1.77-.02-2.27zM3.18.24l12.41 11.13 3.08-3.08L5.38.53A2 2 0 0 0 3.18.24z"/>
+        </svg>
+        Get the App
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ── Hero ── -->
+<section class="landing-hero">
+  <div class="landing-hero-inner">
+
+    <!-- Large logo on white card so it's crisp on the dark gradient -->
+    <div class="hero-logo-card">
+      <img src="assets/app_logo_light.svg" alt="DishDiscover logo">
+    </div>
+
+    <h1>Discover &amp; Share<br>Recipes You Love</h1>
+    <p class="hero-subtitle">
+      Explore thousands of recipes from every cuisine, share your own creations,
+      and connect with food lovers around the world.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://play.google.com/store/apps/details?id=com.meet.dishdiscover"
+         class="btn-primary" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+          <path d="M3.18 23.76a2 2 0 0 0 2.2-.29l13.4-7.74-3.08-3.08-12.52 11.11zm-1.18-22c-.06.2-.1.43-.1.67v19.14c0 .24.04.47.1.67l.08.07 10.72-10.72v-.24L2.08 1.69l-.08.07zm21.27 9.71-3.03-1.75-3.39 3.39 3.39 3.39 3.05-1.76c.87-.5.87-1.77-.02-2.27zM3.18.24l12.41 11.13 3.08-3.08L5.38.53A2 2 0 0 0 3.18.24z"/>
+        </svg>
+        Download on Google Play
+      </a>
+      <a href="privacy.html" class="btn-outline">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+        Privacy &amp; Legal
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Quick-link cards (float over hero) ── -->
+<section class="links-section" aria-label="Legal documents">
+  <div class="links-grid">
+
+    <a href="privacy.html" class="link-card">
+      <div class="link-card-icon green" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <div class="link-card-title">Privacy Policy</div>
+      <p class="link-card-desc">Learn how we collect, use, and protect your personal data when you use DishDiscover.</p>
+      <div class="link-card-cta">
+        Read Privacy Policy
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+    <a href="terms.html" class="link-card">
+      <div class="link-card-icon blue" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+      </div>
+      <div class="link-card-title">Terms &amp; Conditions</div>
+      <p class="link-card-desc">Read our terms of service governing your use of the DishDiscover application.</p>
+      <div class="link-card-cta" style="color: var(--blue-600)">
+        Read Terms
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+    <a href="mailto:bhattmeet887@gmail.com" class="link-card">
+      <div class="link-card-icon green" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </div>
+      <div class="link-card-title">Contact Us</div>
+      <p class="link-card-desc">Questions about privacy or our terms? We respond within 30 days.</p>
+      <div class="link-card-cta">
+        bhattmeet887@gmail.com
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ── Stats bar ── -->
+<div class="stats-section" aria-label="App highlights">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-value">1000+</div>
+      <div class="stat-label">Recipes</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">30+</div>
+      <div class="stat-label">Cuisines</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">Free</div>
+      <div class="stat-label">To Download</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">4.5★</div>
+      <div class="stat-label">Rating</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Features ── -->
+<section class="features-section" aria-labelledby="features-heading">
+  <span class="section-label">Features</span>
+  <h2 id="features-heading">Everything a food lover needs</h2>
+  <p class="section-desc">From discovering new recipes to tracking your cooking journey — DishDiscover has it all.</p>
+
+  <div class="features-grid">
+
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#f0fdf4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0D6F36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+      </div>
+      <h3>Discover Recipes</h3>
+      <p>Browse thousands of recipes across 30+ cuisines — from quick weeknight meals to festive specials.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#eff6ff">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+          <polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/>
+        </svg>
+      </div>
+      <h3>Share Your Creations</h3>
+      <p>Upload your own recipes with photos, ingredients, and step-by-step instructions for the community.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#fdf4ff">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <h3>Follow Food Lovers</h3>
+      <p>Build your own culinary network — follow chefs and home cooks, like their recipes, and get inspired.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#fff7ed">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+      </div>
+      <h3>Meal Planning</h3>
+      <p>Plan your weekly meals in advance. Auto-generate shopping lists so you never miss an ingredient.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#fefce8">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ca8a04" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+      </div>
+      <h3>Achievements &amp; Badges</h3>
+      <p>Earn badges as you cook, review, and share. Level up your profile and showcase your culinary progress.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon" style="background:#f0fdf4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0D6F36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+        </svg>
+      </div>
+      <h3>Smart Notifications</h3>
+      <p>Get notified about new recipes, likes, and follows. Daily recipe picks sent straight to your phone.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── App Info ── -->
+<section class="app-section" aria-label="Download DishDiscover">
+  <div class="app-section-inner">
+    <div class="app-icon">
+      <img src="assets/app_logo.png" alt="DishDiscover app icon">
+    </div>
+    <div class="app-info">
+      <h2>DishDiscover</h2>
+      <p>A recipe discovery and sharing platform that connects food enthusiasts worldwide. Browse thousands of recipes from diverse cuisines, create your own culinary masterpieces, and build a community around your love for food.</p>
+      <div class="store-badges">
+        <a href="https://play.google.com/store/apps/details?id=com.meet.dishdiscover"
+           class="store-badge" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M3.18 23.76a2 2 0 0 0 2.2-.29l13.4-7.74-3.08-3.08-12.52 11.11zm-1.18-22c-.06.2-.1.43-.1.67v19.14c0 .24.04.47.1.67l.08.07 10.72-10.72v-.24L2.08 1.69l-.08.07zm21.27 9.71-3.03-1.75-3.39 3.39 3.39 3.39 3.05-1.76c.87-.5.87-1.77-.02-2.27zM3.18.24l12.41 11.13 3.08-3.08L5.38.53A2 2 0 0 0 3.18.24z"/>
+          </svg>
+          Google Play
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo-wrap" style="pointer-events:none">
+        <img src="assets/app_logo_dark.svg" alt="DishDiscover" class="logo-img-footer">
+      </div>
+      <p class="footer-tagline">Cook. Share. Inspire.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <div class="footer-col-title">App</div>
+        <a href="https://play.google.com/store/apps/details?id=com.meet.dishdiscover" target="_blank" rel="noopener">Google Play</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Support</div>
+        <a href="mailto:bhattmeet887@gmail.com">Contact Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 DishDiscover. All rights reserved.</span>
+    <span>Last Updated: November 23, 2025</span>
+  </div>
+</footer>
+
+</body>
+</html>

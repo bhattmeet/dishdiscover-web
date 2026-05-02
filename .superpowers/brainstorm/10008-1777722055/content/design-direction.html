@@ -1,0 +1,170 @@
+<style>
+  .dir-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 24px; }
+  .dir-card { border-radius: 16px; overflow: hidden; cursor: pointer; border: 3px solid transparent; transition: all 0.2s; }
+  .dir-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+  .dir-card.selected { border-color: #0D6F36; box-shadow: 0 0 0 4px rgba(13,111,54,0.2); }
+
+  /* Mockup previews */
+  .preview { height: 220px; position: relative; overflow: hidden; }
+
+  /* A: Bold Dark */
+  .preview-a {
+    background: linear-gradient(135deg, #021a0a 0%, #0D6F36 60%, #10924A 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  }
+  .preview-a .logo-pill { background: #fff; border-radius: 10px; padding: 6px 18px; font-size: 11px; font-weight: 800; color: #0D6F36; letter-spacing: -0.5px; }
+  .preview-a .headline { color: #fff; font-size: 16px; font-weight: 900; text-align: center; line-height: 1.2; }
+  .preview-a .headline span { background: linear-gradient(90deg, #4ade80, #86efac); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .preview-a .pill { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.8); border-radius: 999px; padding: 3px 10px; font-size: 9px; display: inline-flex; gap: 6px; }
+  .preview-a .cta-row { display: flex; gap: 8px; }
+  .preview-a .btn-w { background: #fff; color: #0D6F36; font-size: 9px; font-weight: 700; padding: 5px 12px; border-radius: 6px; }
+  .preview-a .btn-o { border: 1.5px solid rgba(255,255,255,0.4); color: #fff; font-size: 9px; font-weight: 600; padding: 5px 12px; border-radius: 6px; }
+  .preview-a .float-card {
+    position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%);
+    background: #fff; border-radius: 10px; padding: 8px 16px; width: 85%;
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+  .preview-a .mini-card { background: #f0fdf4; border-radius: 6px; padding: 5px 7px; font-size: 8px; font-weight: 600; color: #0D6F36; text-align: center; }
+
+  /* B: Clean Editorial */
+  .preview-b { background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 20px; }
+  .preview-b .b-label { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #0D6F36; background: #f0fdf4; padding: 3px 10px; border-radius: 999px; }
+  .preview-b .b-logo { background: #f0fdf4; border-radius: 10px; padding: 5px 14px; font-size: 11px; font-weight: 800; color: #0D6F36; }
+  .preview-b .b-headline { font-size: 17px; font-weight: 900; color: #111; text-align: center; line-height: 1.2; letter-spacing: -0.5px; }
+  .preview-b .b-line { width: 40px; height: 3px; background: #0D6F36; border-radius: 2px; }
+  .preview-b .b-sub { font-size: 9px; color: #6b7280; text-align: center; max-width: 160px; }
+  .preview-b .b-btn { background: #0D6F36; color: #fff; font-size: 9px; font-weight: 700; padding: 6px 16px; border-radius: 6px; }
+  .preview-b .b-cards { display: flex; gap: 6px; margin-top: 4px; }
+  .preview-b .b-c { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 6px 10px; font-size: 8px; color: #374151; font-weight: 500; }
+
+  /* C: Vibrant Split */
+  .preview-c { background: #fff; display: flex; overflow: hidden; }
+  .preview-c .c-left { width: 45%; background: linear-gradient(160deg, #0D6F36, #052e16); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 16px; }
+  .preview-c .c-logo { background: #fff; border-radius: 8px; padding: 4px 12px; font-size: 10px; font-weight: 800; color: #0D6F36; }
+  .preview-c .c-h { color: #fff; font-size: 12px; font-weight: 900; text-align: center; line-height: 1.2; }
+  .preview-c .c-b { color: rgba(255,255,255,0.7); font-size: 8px; text-align: center; }
+  .preview-c .c-dl { background: #4ade80; color: #052e16; font-size: 8px; font-weight: 800; padding: 5px 10px; border-radius: 6px; }
+  .preview-c .c-right { flex: 1; padding: 14px; display: flex; flex-direction: column; gap: 6px; }
+  .preview-c .c-feat { background: #f9fafb; border-radius: 8px; padding: 7px 9px; display: flex; gap: 7px; align-items: flex-start; }
+  .preview-c .c-icon { width: 22px; height: 22px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; flex-shrink: 0; }
+  .preview-c .c-ft { font-size: 8px; font-weight: 700; color: #111; }
+  .preview-c .c-fd { font-size: 7.5px; color: #6b7280; line-height: 1.3; }
+
+  /* Card labels */
+  .dir-label { padding: 14px 16px; background: #fff; }
+  .dir-label h3 { font-size: 14px; font-weight: 700; color: #111; margin: 0 0 4px; }
+  .dir-label p { font-size: 12px; color: #6b7280; margin: 0 0 8px; }
+  .dir-label .rec { display: inline-block; font-size: 10px; font-weight: 700; color: #0D6F36; background: #f0fdf4; border: 1px solid #dcfce7; padding: 2px 8px; border-radius: 999px; }
+  .dir-label .neutral { display: inline-block; font-size: 10px; font-weight: 600; color: #6b7280; background: #f9fafb; border: 1px solid #e5e7eb; padding: 2px 8px; border-radius: 999px; }
+
+  .rec-banner {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border: 1px solid #bbf7d0;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .rec-banner .icon { font-size: 22px; }
+  .rec-banner strong { color: #052e16; font-size: 13px; }
+  .rec-banner p { color: #166534; font-size: 12px; margin: 4px 0 0; line-height: 1.5; }
+
+  @media (max-width: 700px) { .dir-grid { grid-template-columns: 1fr; } }
+</style>
+
+<h2>Which design direction fits DishDiscover?</h2>
+<p class="subtitle">Click a card to select your preferred direction. My recommendation is highlighted below.</p>
+
+<div class="rec-banner">
+  <div class="icon">⭐</div>
+  <div>
+    <strong>My Recommendation: Option A — Bold Dark</strong>
+    <p>Food apps live or die on visual appetite. A dark, immersive hero makes food imagery pop, glass effects feel premium, and gradient green accents tie perfectly to the DishDiscover brand. This is the direction used by top-tier apps like Headspace, Calm, and modern recipe platforms. The floating white cards give it depth without complexity.</p>
+  </div>
+</div>
+
+<div class="dir-grid">
+
+  <!-- A: Bold Dark -->
+  <div class="dir-card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="preview preview-a">
+      <div style="display:flex;gap:6px;margin-bottom:2px;">
+        <div class="pill">🍽️ 1000+ Recipes</div>
+        <div class="pill">★ 4.5 Rated</div>
+      </div>
+      <div class="logo-pill">DishDiscover</div>
+      <div class="headline">Discover & Share<br><span>Recipes You Love</span></div>
+      <div class="cta-row">
+        <div class="btn-w">▶ Google Play</div>
+        <div class="btn-o">Privacy & Legal</div>
+      </div>
+      <div class="float-card">
+        <div class="mini-card">🔒 Privacy Policy</div>
+        <div class="mini-card">📄 Terms</div>
+        <div class="mini-card">✉️ Contact</div>
+      </div>
+    </div>
+    <div class="dir-label">
+      <h3>A — Bold Dark</h3>
+      <p>Dark gradient hero, glass elements, neon-green gradient text, floating white cards. Immersive and premium.</p>
+      <span class="rec">⭐ Recommended</span>
+    </div>
+  </div>
+
+  <!-- B: Clean Editorial -->
+  <div class="dir-card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="preview preview-b">
+      <div class="b-label">Discover · Share · Inspire</div>
+      <div class="b-logo">DishDiscover</div>
+      <div class="b-headline">Your Culinary<br>Journey Starts Here</div>
+      <div class="b-line"></div>
+      <div class="b-sub">Thousands of recipes from every cuisine, all in one place.</div>
+      <div class="b-btn">Download Free</div>
+      <div class="b-cards">
+        <div class="b-c">Privacy Policy →</div>
+        <div class="b-c">Terms →</div>
+        <div class="b-c">Contact →</div>
+      </div>
+    </div>
+    <div class="dir-label">
+      <h3>B — Clean Editorial</h3>
+      <p>White background, generous whitespace, subtle green accents, bold typography. Professional and trustworthy.</p>
+      <span class="neutral">Safe choice</span>
+    </div>
+  </div>
+
+  <!-- C: Vibrant Split -->
+  <div class="dir-card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="preview preview-c">
+      <div class="c-left">
+        <div class="c-logo">DishDiscover</div>
+        <div class="c-h">Cook.<br>Share.<br>Inspire.</div>
+        <div class="c-b">Join thousands of food lovers</div>
+        <div class="c-dl">▶ Get the App</div>
+      </div>
+      <div class="c-right">
+        <div class="c-feat">
+          <div class="c-icon" style="background:#f0fdf4">🔍</div>
+          <div><div class="c-ft">Discover Recipes</div><div class="c-fd">Browse 1000+ dishes from every cuisine</div></div>
+        </div>
+        <div class="c-feat">
+          <div class="c-icon" style="background:#eff6ff">📤</div>
+          <div><div class="c-ft">Share Creations</div><div class="c-fd">Upload your own culinary masterpieces</div></div>
+        </div>
+        <div class="c-feat">
+          <div class="c-icon" style="background:#fdf4ff">👥</div>
+          <div><div class="c-ft">Follow Chefs</div><div class="c-fd">Build your cooking network</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="dir-label">
+      <h3>C — Vibrant Split</h3>
+      <p>Two-panel layout: dark brand left, feature list right. Energetic and information-dense.</p>
+      <span class="neutral">Feature-forward</span>
+    </div>
+  </div>
+
+</div>
