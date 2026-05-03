@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-const PLAY_URL = 'https://play.google.com/store/apps/details?id=com.meet.dishdiscover'
-
 export default function Footer() {
   return (
     <footer className="bg-brand-900 text-white">
