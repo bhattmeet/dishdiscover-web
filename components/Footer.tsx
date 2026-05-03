@@ -18,17 +18,6 @@ export default function Footer() {
               height={36}
             />
             <p className="mt-3 text-green-300 text-sm">Cook. Share. Inspire.</p>
-            <a
-              href={PLAY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-4 bg-brand-800 hover:bg-brand-700 text-white text-xs font-semibold px-3 py-2 rounded-lg transition-colors"
-            >
-              <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true">
-                <path d="M3.18 23.76a2 2 0 0 0 2.2-.29l13.4-7.74-3.08-3.08-12.52 11.11zm-1.18-22c-.06.2-.1.43-.1.67v19.14c0 .24.04.47.1.67l.08.07 10.72-10.72v-.24L2.08 1.69l-.08.07zm21.27 9.71-3.03-1.75-3.39 3.39 3.39 3.39 3.05-1.76c.87-.5.87-1.77-.02-2.27zM3.18.24l12.41 11.13 3.08-3.08L5.38.53A2 2 0 0 0 3.18.24z" />
-              </svg>
-              Google Play
-            </a>
           </div>
 
           {/* Links */}

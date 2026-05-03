@@ -7,12 +7,12 @@ export default function Hero() {
   return (
     <section className="bg-brand-900 pt-32 pb-36 px-6">
       <div className="max-w-3xl mx-auto flex flex-col items-center text-center gap-8">
-        <div className="bg-white rounded-3xl shadow-xl px-10 py-6">
+        <div className="bg-white rounded-2xl shadow-xl px-8 py-4">
           <Image
             src="/assets/app_logo_light.svg"
             alt="DishDiscover"
-            width={200}
-            height={52}
+            width={140}
+            height={36}
             priority
           />
         </div>

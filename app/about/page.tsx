@@ -57,17 +57,40 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-brand-900 pt-28 pb-16 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-green-300 bg-brand-800/60 px-3 py-1 rounded-full border border-brand-700 mb-6">
-            Our Story
-          </span>
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight leading-tight">
-            Built by a food lover,<br />for food lovers
-          </h1>
-          <p className="text-green-100 text-lg max-w-xl mx-auto leading-relaxed">
-            DishDiscover started as a passion project to make cooking accessible, social, and fun — turning everyday meals into a shared culinary journey.
-          </p>
+      <section className="bg-brand-900 pt-28 pb-20 px-6">
+        <div className="max-w-3xl mx-auto text-center flex flex-col items-center gap-6">
+          <div className="bg-white rounded-2xl shadow-xl px-6 py-3 inline-flex">
+            <Image
+              src="/assets/app_logo_light.svg"
+              alt="DishDiscover"
+              width={120}
+              height={32}
+              priority
+            />
+          </div>
+          <div>
+            <span className="inline-block text-xs font-semibold uppercase tracking-widest text-green-300 bg-brand-800/60 px-3 py-1 rounded-full border border-brand-700 mb-4">
+              Our Story
+            </span>
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight leading-tight">
+              Built by a food lover,<br />for food lovers
+            </h1>
+            <p className="text-green-100 text-lg max-w-xl mx-auto leading-relaxed">
+              DishDiscover started as a passion project to make cooking accessible, social, and fun — turning everyday meals into a shared culinary journey.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats strip */}
+      <section className="bg-white border-b border-gray-100">
+        <div className="max-w-4xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          {stats.map(({ value, label }) => (
+            <div key={label}>
+              <div className="text-2xl font-bold text-brand-800">{value}</div>
+              <div className="text-sm text-gray-500 mt-1">{label}</div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -85,25 +108,29 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="bg-gray-50 rounded-2xl p-8 flex flex-col items-center text-center gap-6">
-            <Image
-              src="/assets/app_logo.png"
-              alt="DishDiscover app icon"
-              width={72}
-              height={72}
-              className="rounded-2xl"
-            />
-            <div>
-              <div className="font-bold text-gray-900 text-lg">DishDiscover</div>
-              <div className="text-sm text-gray-500 mt-0.5">Cook. Share. Inspire.</div>
-            </div>
-            <div className="grid grid-cols-4 gap-4 w-full border-t border-gray-200 pt-5">
-              {stats.map(({ value, label }) => (
-                <div key={label}>
-                  <div className="text-lg font-bold text-brand-800">{value}</div>
-                  <div className="text-xs text-gray-500 mt-0.5">{label}</div>
-                </div>
-              ))}
+          <div className="relative">
+            <div className="bg-brand-900 rounded-3xl p-8 text-white">
+              <Image
+                src="/assets/app_logo_dark.svg"
+                alt="DishDiscover"
+                width={130}
+                height={34}
+                className="mb-6"
+              />
+              <p className="text-green-100 text-sm leading-relaxed mb-6">
+                A recipe discovery and sharing platform that connects food enthusiasts worldwide. Browse thousands of recipes, share your own creations, and build a community around your love for food.
+              </p>
+              <a
+                href={PLAY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-brand-800 hover:bg-brand-700 text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors"
+              >
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+                  <path d="M3.18 23.76a2 2 0 0 0 2.2-.29l13.4-7.74-3.08-3.08-12.52 11.11zm-1.18-22c-.06.2-.1.43-.1.67v19.14c0 .24.04.47.1.67l.08.07 10.72-10.72v-.24L2.08 1.69l-.08.07zm21.27 9.71-3.03-1.75-3.39 3.39 3.39 3.39 3.05-1.76c.87-.5.87-1.77-.02-2.27zM3.18.24l12.41 11.13 3.08-3.08L5.38.53A2 2 0 0 0 3.18.24z" />
+                </svg>
+                Get it on Google Play
+              </a>
             </div>
           </div>
         </div>
@@ -153,23 +180,6 @@ export default function AboutPage() {
             </Link>
           </div>
         </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 px-6 bg-brand-900 text-center">
-        <h2 className="text-2xl font-bold text-white mb-3">Ready to start cooking?</h2>
-        <p className="text-green-100 mb-6 text-sm">Download DishDiscover free on Google Play.</p>
-        <a
-          href={PLAY_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-brand-800 hover:bg-brand-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
-        >
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-            <path d="M3.18 23.76a2 2 0 0 0 2.2-.29l13.4-7.74-3.08-3.08-12.52 11.11zm-1.18-22c-.06.2-.1.43-.1.67v19.14c0 .24.04.47.1.67l.08.07 10.72-10.72v-.24L2.08 1.69l-.08.07zm21.27 9.71-3.03-1.75-3.39 3.39 3.39 3.39 3.05-1.76c.87-.5.87-1.77-.02-2.27zM3.18.24l12.41 11.13 3.08-3.08L5.38.53A2 2 0 0 0 3.18.24z" />
-          </svg>
-          Download Free on Google Play
-        </a>
       </section>
     </>
   )
